@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('condesities', function (Blueprint $table) {
+        Schema::create('condensities', function (Blueprint $table) {
             $table->id();
-            $table->float('condesity');
+            $table->float('condensity');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('condesities');
+        Schema::dropIfExists('condensities');
     }
 };
