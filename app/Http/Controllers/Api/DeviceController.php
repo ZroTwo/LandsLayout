@@ -21,6 +21,23 @@ class DeviceController extends Controller
             'token' => $validatedData['token'],
         ]);
 
+
+//        foreach ($device->tokens as $token) {
+//            $token->delete();
+//
+
         return response()->json($device, 201);
+    }
+
+    public function createToken(Request $request)
+    {
+        $device = Device::find($request->device_id);
+
+        foreach ($device->tokens as $token) {
+            $token = $request->device()->createToken($request->token_name);
+        }
+
+        return $device->createToken('token-name', ['server:update'])->plainTextToken;
+
     }
 }
