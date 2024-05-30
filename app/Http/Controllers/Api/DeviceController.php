@@ -10,6 +10,7 @@ class DeviceController extends Controller
 {
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:60',
             'token' => 'required|string|max:100',
