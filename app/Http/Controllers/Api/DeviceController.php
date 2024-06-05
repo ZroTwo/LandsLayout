@@ -10,7 +10,6 @@ class DeviceController extends Controller
 {
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'name' => 'required|string|max:60',
             'token' => 'required|string|max:100',
@@ -21,11 +20,6 @@ class DeviceController extends Controller
             'token' => $validatedData['token'],
         ]);
 
-
-//        foreach ($device->tokens as $token) {
-//            $token->delete();
-//
-
         return response()->json($device, 201);
     }
 
@@ -33,11 +27,13 @@ class DeviceController extends Controller
     {
         $device = Device::find($request->device_id);
 
-        foreach ($device->tokens as $token) {
-            $token = $request->device()->createToken($request->token_name);
+        if ($device) {
+            // Create a new token for the device
+            $token = $device->createToken($request->token_name);
+
+            return response()->json(['token' => $token->plainTextToken], 200);
+        } else {
+            return response()->json(['message' => 'Device not found'], 404);
         }
-
-        return $device->createToken('token-name', ['server:update'])->plainTextToken;
-
     }
 }

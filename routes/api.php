@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\DeviceController;
 
 Route::get('temperatures', function () {
    return \App\Models\Temperature::all();
@@ -11,8 +12,6 @@ Route::post('temperatures/create', 'App\Http\Controllers\Api\TemperatureControll
 
 Route::post('devices/create', 'App\Http\Controllers\Api\DeviceController@store');
 
-Route::post('\tokens\create', function (Request $request) {
-    $token = $request->device()->createToken($request->token_name);
+Route::post('/devices', [DeviceController::class, 'store']);
 
-    return ['token' => $token->plainTextToken];
-});
+Route::post('/devices/token', [DeviceController::class, 'createToken']);
