@@ -7,6 +7,7 @@
 {{--    @inertiaHead--}}
 </head>
 <body>
+
     <div>
         wehdsxcskjfhakjsfdhkjsafhvdzkl
     </div>
