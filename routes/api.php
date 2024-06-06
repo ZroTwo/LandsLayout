@@ -8,9 +8,9 @@ Route::get('temperatures', function () {
    return \App\Models\Temperature::all();
 });
 
-Route::post('temperatures/create', 'App\Http\Controllers\Api\TemperatureController@store');
+Route::post('temperatures/create', 'App\Http\Controllers\Api\TemperatureController@store') ->middleware('auth:sanctum');
 
-Route::post('devices/create', 'App\Http\Controllers\Api\DeviceController@store');
+Route::post('devices/create', 'App\Http\Controllers\Api\DeviceController@store') ->middleware('auth:sanctum');
 
 Route::post('/devices', [DeviceController::class, 'store']);
 

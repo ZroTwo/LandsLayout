@@ -28,7 +28,7 @@ class DeviceController extends Controller
         $device = Device::find($request->device_id);
 
         if ($device) {
-            // Create a new token for the device
+
             $token = $device->createToken($request->token_name);
 
             return response()->json(['token' => $token->plainTextToken], 200);
