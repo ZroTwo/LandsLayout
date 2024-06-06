@@ -8,6 +8,4 @@ Route::get('/', function () {
     return view('app');
 });
 
-Route::get('/show', function () {
-   return Inertia::render('Home/Show');
-});
+Route::get('/show', [\App\Http\Controllers\HomeController::class, 'index']);
