@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('temperatures', function (Blueprint $table) {
             $table->id();
             $table->float('temperature');
+            $table->unsignedBigInteger('device_id');
+            $table->foreign('device_id')->references('id')->on('devices');
             $table->timestamps();
         });
     }

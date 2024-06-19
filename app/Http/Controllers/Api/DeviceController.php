@@ -11,17 +11,16 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:60',
-            'token' => 'required|string|max:100',
+            'name' => 'required|string|max:60'
         ]);
 
         $device = Device::create([
-            'name' => $validatedData['name'],
-            'token' => $validatedData['token'],
+            'name' => $validatedData['name']
         ]);
 
         return response()->json($device, 201);
     }
+<<<<<<< Updated upstream
 
     public function createToken(Request $request)
     {
@@ -36,4 +35,6 @@ class DeviceController extends Controller
             return response()->json(['message' => 'Device not found'], 404);
         }
     }
+=======
+>>>>>>> Stashed changes
 }

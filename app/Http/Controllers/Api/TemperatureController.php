@@ -24,6 +24,7 @@ class TemperatureController extends Controller
 
         Temperature::create([
             'temperature' => $request->temperature,
+            'device_id' => $request->user()->id,
         ]);
 
         return response()->json(null, 204);

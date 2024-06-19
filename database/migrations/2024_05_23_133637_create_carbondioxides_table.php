@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('carbondioxides', function (Blueprint $table) {
             $table->id();
             $table->float('carbondioxide');
+            $table->unsignedBigInteger('device_id');
+            $table->foreign('device_id')->references('id')->on('devices');
             $table->timestamps();
         });
     }
