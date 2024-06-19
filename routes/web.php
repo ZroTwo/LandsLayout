@@ -7,8 +7,7 @@ Route::get('/', function () {
     return view('app');
 });
 
-<<<<<<< Updated upstream
-=======
+
 Route::get('/show', [\App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('token/create', function () {
@@ -18,4 +17,3 @@ Route::get('token/create', function () {
 
     return ['token' => $token->plainTextToken];
 });
->>>>>>> Stashed changes

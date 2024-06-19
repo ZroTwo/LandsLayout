@@ -20,21 +20,4 @@ class DeviceController extends Controller
 
         return response()->json($device, 201);
     }
-<<<<<<< Updated upstream
-
-    public function createToken(Request $request)
-    {
-        $device = Device::find($request->device_id);
-
-        if ($device) {
-            // Create a new token for the device
-            $token = $device->createToken($request->token_name);
-
-            return response()->json(['token' => $token->plainTextToken], 200);
-        } else {
-            return response()->json(['message' => 'Device not found'], 404);
-        }
-    }
-=======
->>>>>>> Stashed changes
 }
