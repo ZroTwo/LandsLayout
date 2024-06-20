@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Temperature;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TemperatureController extends Controller
 {
@@ -29,4 +30,11 @@ class TemperatureController extends Controller
 
         return response()->json(null, 204);
     }
+
+    public function show(Temperature $temperature)
+        {
+            return Inertia::render('Temperature/Show', [
+                'temperature' => $temperature->only('id', 'temperature', 'created_at'),
+            ]);
+        }
 }
