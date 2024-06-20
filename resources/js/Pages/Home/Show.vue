@@ -39,14 +39,6 @@ const clickCond = () => {
 
 </script>
 
-<template>
-    <Layout>
-        <Head title="Welcome" />
-        <h1>Welcome</h1>
-        <p>Hello its {{ temperature.temperature }}, welcome to your first Inertia app!</p>
-    </Layout>
-</template>
-
 <script>
 export default {
     name: 'Home'
