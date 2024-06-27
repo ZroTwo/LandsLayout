@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('x');
+            $table->integer('y');
             $table->timestamps();
         });
     }

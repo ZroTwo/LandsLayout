@@ -11,5 +11,5 @@ class Device extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'token'];
+    protected $fillable = ['name','x', 'y', 'token'];
 }
